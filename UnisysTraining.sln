@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleResponsibilityPrincip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenClosePrinciple", "OpenClosePrinciple\OpenClosePrinciple.csproj", "{D2889C7C-0C28-4B87-9302-33C63821644F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiskovSubstitutionPrinciple", "LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple.csproj", "{5B0B18B1-781B-4223-A6EF-7CD27CE01661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceSeggregationPrincipal", "InterfaceSeggregationPrincipal\InterfaceSeggregationPrincipal.csproj", "{0DC4541A-DAA8-4A0A-9FA5-02FDEEAEAB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInversionPrinciple", "DependencyInversionPrinciple\DependencyInversionPrinciple.csproj", "{4FF53102-3633-4EC8-93C1-1FD855682153}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVVM", "MVVM", "{36C02EBA-D1AF-4510-83F6-EE627609E76D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDashboard", "EmployeeDashboard\EmployeeDashboard.csproj", "{8A989891-0318-4631-91C6-149B33C589BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +33,22 @@ Global
 		{D2889C7C-0C28-4B87-9302-33C63821644F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2889C7C-0C28-4B87-9302-33C63821644F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2889C7C-0C28-4B87-9302-33C63821644F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B0B18B1-781B-4223-A6EF-7CD27CE01661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B0B18B1-781B-4223-A6EF-7CD27CE01661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B0B18B1-781B-4223-A6EF-7CD27CE01661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B0B18B1-781B-4223-A6EF-7CD27CE01661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC4541A-DAA8-4A0A-9FA5-02FDEEAEAB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC4541A-DAA8-4A0A-9FA5-02FDEEAEAB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC4541A-DAA8-4A0A-9FA5-02FDEEAEAB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC4541A-DAA8-4A0A-9FA5-02FDEEAEAB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF53102-3633-4EC8-93C1-1FD855682153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF53102-3633-4EC8-93C1-1FD855682153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF53102-3633-4EC8-93C1-1FD855682153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF53102-3633-4EC8-93C1-1FD855682153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A989891-0318-4631-91C6-149B33C589BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A989891-0318-4631-91C6-149B33C589BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A989891-0318-4631-91C6-149B33C589BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A989891-0318-4631-91C6-149B33C589BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +56,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{22D1A91F-62B4-40D6-9674-54BDAA255CBE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{D2889C7C-0C28-4B87-9302-33C63821644F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{5B0B18B1-781B-4223-A6EF-7CD27CE01661} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{0DC4541A-DAA8-4A0A-9FA5-02FDEEAEAB42} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{4FF53102-3633-4EC8-93C1-1FD855682153} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8A989891-0318-4631-91C6-149B33C589BB} = {36C02EBA-D1AF-4510-83F6-EE627609E76D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B4B97DA-1CE3-48EC-94DC-DDD9E1BD991F}
