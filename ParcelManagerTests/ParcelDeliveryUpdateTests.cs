@@ -89,7 +89,6 @@ namespace ParcelManagerTests
             //Update the parcel as delivered
             _parcelService.MarkParcelAsDelivered(parcelNumber);
 
-            //mockEmailService.Object.SentEmail("test", "test");
             //Assert that the email service was called
             mockEmailService.Verify(x => x.SentEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once());
         }
