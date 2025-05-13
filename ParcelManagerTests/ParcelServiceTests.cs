@@ -11,7 +11,7 @@ namespace ParcelManagerTests
         [SetUp]
         public void SetUpTests()
         {
-            _parcelService = new ParcelService();
+            _parcelService = new ParcelService(null,null);
         }
 
         [Test]
