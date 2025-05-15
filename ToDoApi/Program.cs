@@ -16,7 +16,12 @@ namespace ToDoApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddAuthentication();
+            builder.Services.AddAuthorization();
+
+
             builder.Services.AddSingleton<ITodoService, TodoService>();
+            builder.Services.AddSingleton<IUserService, UserService>();
 
             var app = builder.Build();
 
@@ -26,6 +31,10 @@ namespace ToDoApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.MapControllers();
 
             app.Run();

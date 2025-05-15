@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CredentialManagement" Version="1.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.Security.Permissions" Version="9.0.5" />
   </ItemGroup>
 
 </Project>
