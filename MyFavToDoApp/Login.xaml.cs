@@ -23,9 +23,11 @@ namespace MyFavToDoApp
     /// </summary>
     public partial class Login : Window
     {
-        public Login()
+        private readonly ToDoViewModel _toDoViewModel;
+        public Login(ToDoViewModel toDoViewModel)
         {
             InitializeComponent();
+            _toDoViewModel = toDoViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -44,9 +46,11 @@ namespace MyFavToDoApp
                 var response = ApiService.Http.PostAsJsonAsync("api/login", authRequest).Result;
                 if(response.IsSuccessStatusCode)
                 {
-                    ToDoViewModel.AuthStatus.IsAuthenticated = true;
-                    ToDoViewModel.AuthStatus.Token =  JsonSerializer.Deserialize<JwtToken>(response.Content.ReadAsStringAsync().Result).Token;
+                    _toDoViewModel.AuthStatus.IsAuthenticated = true;
+                    var result =  response.Content.ReadFromJsonAsync<JwtToken>().Result;
+                    _toDoViewModel.AuthStatus.Token = result.Token; //JsonSerializer.Deserialize<JwtToken>(response.Content.ReadAsStringAsync().Result).Token;
 
+                    _toDoViewModel.RefreshAuthStatus();
                     this.Close();
                 }
                 else

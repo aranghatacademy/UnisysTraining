@@ -17,17 +17,19 @@ namespace MyFavToDoApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly ToDoViewModel _viewModel;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ToDoViewModel();
+            _viewModel = new ToDoViewModel();
+            DataContext = _viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(!ToDoViewModel.AuthStatus.IsAuthenticated)
+            if(!_viewModel.AuthStatus.IsAuthenticated)
             {
-                Login login = new Login();
+                Login login = new Login(_viewModel);
                 login.ShowDialog();
             }
         }

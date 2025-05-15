@@ -15,7 +15,7 @@ namespace MyFavToDoApp.ViewModel
 {
     public class ToDoViewModel : INotifyPropertyChanged
     {
-        public static AuthStatus AuthStatus { get; set; } = new AuthStatus();
+        public AuthStatus AuthStatus { get; set; } = new AuthStatus();
         public string ToDoItemTitle { get; set; } = string.Empty;   
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<ToDoItem> _toDoItems = new ObservableCollection<ToDoItem>();
@@ -40,24 +40,29 @@ namespace MyFavToDoApp.ViewModel
 
         private async Task LoadAllToDoItems()
         {
-           // await Task.Delay(5000);
-            var response = await ApiService.Http.GetAsync("api/todo");
-            if (response.IsSuccessStatusCode)
+            // await Task.Delay(5000);
+            if (AuthStatus.IsAuthenticated)
             {
-                var items = await response.Content
-                                          .ReadFromJsonAsync<List<ToDoItem>>();
-                if (items != null)
+                ApiService.Http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", AuthStatus.Token);
+
+                var response = await ApiService.Http.GetAsync("api/todo");
+                if (response.IsSuccessStatusCode)
                 {
-                    ToDoItems.Clear();
-                    foreach (var item in items)
+                    var items = await response.Content
+                                              .ReadFromJsonAsync<List<ToDoItem>>();
+                    if (items != null)
                     {
-                        ToDoItems.Add(item);
+                        ToDoItems.Clear();
+                        foreach (var item in items)
+                        {
+                            ToDoItems.Add(item);
+                        }
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Error loading tasks");
+                else
+                {
+                    MessageBox.Show("Error loading tasks");
+                }
             }
         }
 
@@ -96,6 +101,14 @@ namespace MyFavToDoApp.ViewModel
                 MessageBox.Show("Please enter the task title");
             }
         });
+   
+        public void RefreshAuthStatus()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AuthStatus)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AuthStatus.IsAuthenticated)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AuthStatus.Token)));
+        }
+    
     }
 
     public class RelayCommand : ICommand

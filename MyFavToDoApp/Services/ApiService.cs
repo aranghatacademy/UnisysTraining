@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using MyFavToDoApp.ViewModel;
 
 namespace MyFavToDoApp.Services
 {
@@ -23,6 +24,9 @@ namespace MyFavToDoApp.Services
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:5012/");
+
+           
+            
         }
 
 

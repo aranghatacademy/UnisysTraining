@@ -46,8 +46,12 @@ namespace ToDoApi.Services
                 var isAuthSuccess = cred.Username == username && cred.Password == password;
 
                 //Create a JWT Token
-                var token = GenerateJwt(username);
-                return token;
+                if (isAuthSuccess)
+                {
+                    var token = GenerateJwt(username);
+                    return token;
+                }
+
             }
 
             throw new UnauthorizedAccessException();
