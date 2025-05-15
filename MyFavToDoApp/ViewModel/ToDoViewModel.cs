@@ -17,11 +17,24 @@ namespace MyFavToDoApp.ViewModel
     {
         public string ToDoItemTitle { get; set; } = string.Empty;   
         public event PropertyChangedEventHandler? PropertyChanged;
-        ObservableCollection<ToDoViewModel> ToDoItems = new ObservableCollection<ToDoViewModel>();
+        public ObservableCollection<ToDoItem> _toDoItems = new ObservableCollection<ToDoItem>();
+
+        public ObservableCollection<ToDoItem> ToDoItems
+        {
+            get => _toDoItems;
+            set
+            {
+                if (_toDoItems != value)
+                {
+                    _toDoItems = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ToDoItems)));
+                }
+            }
+        }
 
         public ToDoViewModel()
         {
-             //LoadAllToDoItems().GetAwaiter().GetResult();
+            //LoadAllToDoItems();
         }
 
         private async Task LoadAllToDoItems()
@@ -37,7 +50,7 @@ namespace MyFavToDoApp.ViewModel
                     ToDoItems.Clear();
                     foreach (var item in items)
                     {
-                        ToDoItems.Add(new ToDoViewModel { ToDoItemTitle = item.Title });
+                        ToDoItems.Add(item);
                     }
                 }
             }
@@ -47,6 +60,11 @@ namespace MyFavToDoApp.ViewModel
             }
         }
 
+
+        public ICommand RereshToDoItemCommand => new RelayCommand(async () =>
+        {
+            await LoadAllToDoItems();
+        });
         public ICommand NewToDoItemCommand => new RelayCommand(async () =>
         {
             if(!string.IsNullOrEmpty(ToDoItemTitle))

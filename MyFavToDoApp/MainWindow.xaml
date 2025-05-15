@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox Name="TaskInput" Text="{Binding ToDoItemTitle,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="673" />
-        <Button Content="Add New Task" HorizontalAlignment="Left" Margin="699,12,0,0" Command="{Binding NewToDoItemCommand}" VerticalAlignment="Top"/>
-
-        <Grid>
-            <ListView ItemsSource="{Binding ToDoItems}" Margin="0,45,0,0">
+        <TextBox Name="TaskInput" Text="{Binding ToDoItemTitle,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="562" />
+        <Button Content="Add New Task" HorizontalAlignment="Left" Margin="600,12,0,0" Command="{Binding NewToDoItemCommand}" VerticalAlignment="Top"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="699,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top"/>
+        <Grid Margin="-10,0,10,0">
+            <ListView ItemsSource="{Binding ToDoItems}" Margin="10,45,-10,0" Height="Auto" Width="Auto">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title" Width="200" DisplayMemberBinding="{Binding Title}" />
-                        <GridViewColumn Header="Status">
+                        <GridViewColumn Header="Completed">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <CheckBox IsChecked="{Binding IsCompleted}" />
