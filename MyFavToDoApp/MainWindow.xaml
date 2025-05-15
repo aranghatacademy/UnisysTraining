@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyFavToDoApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1024">
     <Grid>
         <TextBox Name="TaskInput" Text="{Binding ToDoItemTitle,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="562" />
-        <Button Content="Add New Task" HorizontalAlignment="Left" Margin="600,12,0,0" Command="{Binding NewToDoItemCommand}" VerticalAlignment="Top"/>
-        <Button Content="Refresh" HorizontalAlignment="Left" Margin="699,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top"/>
-        <Grid Margin="-10,0,10,0">
-            <ListView ItemsSource="{Binding ToDoItems}" Margin="10,45,-10,0" Height="Auto" Width="Auto">
+        <Button Content="Add New Task" IsEnabled="{Binding AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="600,12,0,0" Command="{Binding NewToDoItemCommand}" VerticalAlignment="Top"/>
+        <Button Content="Refresh" IsEnabled="{Binding AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="700,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top" Width="58"/>
+        <Button Content="Login" IsEnabled="{Binding !AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="800,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top"/>
+
+
+        <Grid Margin="10,0,-10,0">
+            <ListView ItemsSource="{Binding ToDoItems}" Margin="10,45,10,0" Height="Auto" Width="Auto">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title" Width="200" DisplayMemberBinding="{Binding Title}" />

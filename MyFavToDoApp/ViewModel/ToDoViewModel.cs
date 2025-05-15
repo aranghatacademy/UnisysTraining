@@ -15,6 +15,7 @@ namespace MyFavToDoApp.ViewModel
 {
     public class ToDoViewModel : INotifyPropertyChanged
     {
+        public static AuthStatus AuthStatus { get; set; } = new AuthStatus();
         public string ToDoItemTitle { get; set; } = string.Empty;   
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<ToDoItem> _toDoItems = new ObservableCollection<ToDoItem>();
