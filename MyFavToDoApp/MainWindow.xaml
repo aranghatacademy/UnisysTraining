@@ -10,7 +10,7 @@
         <TextBox Name="TaskInput" Text="{Binding ToDoItemTitle,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="562" />
         <Button Content="Add New Task" IsEnabled="{Binding AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="600,12,0,0" Command="{Binding NewToDoItemCommand}" VerticalAlignment="Top"/>
         <Button Content="Refresh" IsEnabled="{Binding AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="700,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top" Width="58"/>
-        <Button Content="Login" IsEnabled="{Binding !AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="800,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top"/>
+        <Button Content="Login" IsEnabled="{Binding !AuthStatus.IsAuthenticated}" HorizontalAlignment="Left" Margin="800,12,0,0" Command="{Binding RereshToDoItemCommand}" VerticalAlignment="Top" Click="Button_Click"/>
 
 
         <Grid Margin="10,0,-10,0">

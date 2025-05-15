@@ -22,7 +22,7 @@ namespace MyFavToDoApp.Services
         static ApiService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://localhost:5000/");
+            _httpClient.BaseAddress = new Uri("http://localhost:5012/");
         }
 
 

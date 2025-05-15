@@ -22,5 +22,14 @@ namespace MyFavToDoApp
             InitializeComponent();
             DataContext = new ToDoViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(!ToDoViewModel.AuthStatus.IsAuthenticated)
+            {
+                Login login = new Login();
+                login.ShowDialog();
+            }
+        }
     }
 }
